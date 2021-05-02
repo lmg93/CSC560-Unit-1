@@ -1,0 +1,22 @@
+{
+	"user1" : {
+		"name" : "Spike",
+		"password" : "password1",
+		"breed" : "pitbull",
+		"id" : 1
+	}, 
+	
+	"user2" : {
+		"name" : "Fido",
+		"password" : "password2",
+		"breed" : "golden retriever",
+		"id" : 2
+	},
+		
+	"user3" : {
+		"name" : "Cramer", 
+		"password" : "password3",
+		"breed" : "sheepdog",
+		"id" : 3
+	}
+}

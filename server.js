@@ -4,24 +4,18 @@ var fs = require("fs");
 
 var user = {
 	"user4" : {
-		"name" : "mohit",
+		"name" : "Jules",
 		"password" : "password4", 
-		"profession" : "teacher",
+		"breed" : "poodle",
 		"id" : 4
 	}
-}
+} 
 
-var id = 2; 
-
-app.post('/addUser', function (req, res) {
-	// First read existing users.
-	
-	fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
-		data = JSON.parse ( data );
-		data["user4"] = user["user4"];
-		console.log( data );
-		res.end( JSON.stringify(data));
-	});
+app.get('/listUsers', function (req, res) {
+    fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
+        console.log( data );
+        res.end ( data );
+    });
 })
 
 app.get('/:id', function (req, res) {
@@ -35,11 +29,15 @@ app.get('/:id', function (req, res) {
 	});
 })
 
-app.get('/listUsers', function (req, res) {
-    fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
-        console.log( data );
-        res.end ( data );
-    });
+app.post('/addUser', function (req, res) {
+	// First read existing users.
+	
+	fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
+		data = JSON.parse ( data );
+		data["user4"] = user["user4"];
+		console.log( data );
+		res.end( JSON.stringify(data));
+	});
 })
 
 app.delete('/deleteUser', function (req, res) {
@@ -52,8 +50,6 @@ app.delete('/deleteUser', function (req, res) {
 		res.end( JSON.stringify(data));
 	});
 })
-
-	
 
 var server = app.listen(8081, function () {
     var host = server.address().address
